@@ -11,15 +11,22 @@ import {
 } from "./markdown";
 import { normalizeTags } from "./tags";
 
-export type LogSection = {
-  heading: string;
-  items: string[];
+export type LogItem = {
+  caption?: string;
+  description?: string;
+  href?: string;
+  image?: {
+    alt: string;
+    src: string;
+  };
+  linkLabel?: string;
+  title?: string;
 };
 
 export type LogEntry = {
   body: string;
   endDate: string;
-  sections: LogSection[];
+  items: LogItem[];
   slug: string;
   startDate: string;
   summary?: string;
@@ -29,23 +36,68 @@ export type LogEntry = {
 
 const logDirectory = join(process.cwd(), "content", "log");
 
-function parseLogSections(body: string): LogSection[] {
-  const sections: LogSection[] = [];
-  let currentSection: LogSection | undefined;
+function parseLogItems(body: string): LogItem[] {
+  const items: LogItem[] = [];
+  let currentItem: LogItem | undefined;
+  let description: string[] = [];
+
+  const ensureItem = () => {
+    currentItem ??= {};
+    return currentItem;
+  };
+
+  const flushDescription = () => {
+    if (currentItem && description.length) {
+      currentItem.description = description.join(" ");
+    }
+    description = [];
+  };
+
+  const flushItem = () => {
+    flushDescription();
+    if (currentItem && Object.keys(currentItem).length) items.push(currentItem);
+    currentItem = undefined;
+  };
 
   for (const line of body.split("\n")) {
     const heading = line.match(/^##\s+(.+)$/);
     if (heading) {
-      currentSection = { heading: heading[1], items: [] };
-      sections.push(currentSection);
+      flushItem();
+      currentItem = { title: heading[1] };
       continue;
     }
 
-    const item = line.match(/^\s*-\s+(.+)$/);
-    if (item && currentSection) currentSection.items.push(item[1]);
+    const image = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (image) {
+      flushDescription();
+      ensureItem().image = { alt: image[1], src: image[2] };
+      continue;
+    }
+
+    const link = line.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      flushDescription();
+      const item = ensureItem();
+      item.linkLabel = link[1];
+      item.href = link[2];
+      continue;
+    }
+
+    const caption = line.match(/^\*([^*]+)\*$/);
+    if (caption) {
+      flushDescription();
+      ensureItem().caption = caption[1];
+      continue;
+    }
+
+    if (line.trim()) {
+      ensureItem();
+      description.push(line.trim());
+    }
   }
 
-  return sections;
+  flushItem();
+  return items;
 }
 
 function readLog(filePath: string): LogEntry {
@@ -60,7 +112,7 @@ function readLog(filePath: string): LogEntry {
   return {
     body,
     endDate,
-    sections: parseLogSections(body),
+    items: parseLogItems(body),
     slug: requiredString(frontmatter, "slug", filePath),
     startDate,
     summary: optionalString(frontmatter, "summary", filePath),

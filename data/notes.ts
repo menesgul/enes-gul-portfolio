@@ -11,6 +11,7 @@ export type NoteCollection = {
   notes: Note[];
   slug: string;
   title: string;
+  year?: string;
 };
 
 export const noteCollections: NoteCollection[] = [
@@ -18,6 +19,7 @@ export const noteCollections: NoteCollection[] = [
     title: "Distributed Systems",
     slug: "distributed-systems",
     label: "Distributed systems",
+    year: "2025–2026",
     description: "Study notes on distributed systems.",
     notes: [
       {
@@ -74,6 +76,7 @@ export const noteCollections: NoteCollection[] = [
     title: "Cloud Architecture",
     slug: "cloud-architecture",
     label: "Cloud infrastructure",
+    year: "2025–2026",
     description: "Study notes on cloud infrastructure and operations.",
     notes: [
       {
@@ -147,6 +150,168 @@ export const noteCollections: NoteCollection[] = [
         slug: "week-13-automation-operations",
         description: "Automation workflows, infrastructure as code, configuration management and operational tooling.",
         pdfPath: "/notes/cloud-architecture/week-13-automation-operations.pdf",
+      },
+    ],
+  },
+  {
+    title: "Computer Networks",
+    slug: "computer-networks",
+    label: "Networking fundamentals",
+    year: "2025",
+    description: "Study notes on networking fundamentals.",
+    notes: [
+      {
+        title: "Week 1 — Network Services & Client-Server",
+        slug: "week-01-network-services",
+        description: "Client-server applications, file and print services, communication services and email protocols.",
+        pdfPath: "/notes/computer-networks/week-01-network-services.pdf",
+      },
+      {
+        title: "Week 2 — Addressing, DNS & Ports",
+        slug: "week-02-addressing-dns-ports",
+        description: "MAC, IP, domain and port addressing, plus DNS resolution and server hierarchy.",
+        pdfPath: "/notes/computer-networks/week-02-addressing-dns-ports.pdf",
+      },
+      {
+        title: "Week 3 — TCP/IP Core Protocols",
+        slug: "week-03-tcp-ip-protocols",
+        description: "TCP/IP encapsulation and the core TCP, UDP, IP, ICMP, IGMP and ARP protocols.",
+        pdfPath: "/notes/computer-networks/week-03-tcp-ip-protocols.pdf",
+      },
+      {
+        title: "Week 4 — Structured Cabling & Network Equipment",
+        slug: "week-04-structured-cabling",
+        description: "Structured cabling, distribution frames, cable management, equipment racks and network storage.",
+        pdfPath: "/notes/computer-networks/week-04-structured-cabling.pdf",
+      },
+      {
+        title: "Week 5 — Transmission Basics",
+        slug: "week-05-transmission-basics",
+        description: "Analog and digital signals, modulation, baseband and broadband transmission, and multiplexing.",
+        pdfPath: "/notes/computer-networks/week-05-transmission-basics.pdf",
+      },
+      {
+        title: "Week 6 — Wireless Networking",
+        slug: "week-06-wireless-networking",
+        description: "Wireless spectrum and propagation, WLAN architecture, 802.11 access, roaming and WPA security.",
+        pdfPath: "/notes/computer-networks/week-06-wireless-networking.pdf",
+      },
+      {
+        title: "Week 7 — Cloud Computing",
+        slug: "week-07-cloud-computing",
+        description: "Cloud service and deployment models, remote access, VPN tunneling and encryption.",
+        pdfPath: "/notes/computer-networks/week-07-cloud-computing.pdf",
+      },
+      {
+        title: "Week 10 — Network Security",
+        slug: "week-10-network-security",
+        description: "Security assessments, network risks, attack vectors and internet-access threats.",
+        pdfPath: "/notes/computer-networks/week-10-network-security.pdf",
+      },
+      {
+        title: "Week 11 — Network Management & SNMP",
+        slug: "week-11-network-management",
+        description: "Network baselines, performance and fault management, SNMP, managed devices, MIBs and event logs.",
+        pdfPath: "/notes/computer-networks/week-11-network-management.pdf",
+      },
+      {
+        title: "Week 12 — Segmentation & Subnetting",
+        slug: "week-12-subnetting",
+        description: "Network segmentation, subnet masks, CIDR, subnet calculations and virtualization concepts.",
+        pdfPath: "/notes/computer-networks/week-12-subnetting.pdf",
+      },
+      {
+        title: "Week 13 — WAN Essentials",
+        slug: "week-13-wan-essentials",
+        description: "WAN sites, DTE and DCE, WAN topologies and public switched telephone networks.",
+        pdfPath: "/notes/computer-networks/week-13-wan-essentials.pdf",
+      },
+      {
+        title: "Week 14 — Industrial Networks, IoT & Operations",
+        slug: "week-14-industrial-networks",
+        description: "Industrial control and SCADA networks, IoT, asset management and change management.",
+        pdfPath: "/notes/computer-networks/week-14-industrial-networks.pdf",
+      },
+    ],
+  },
+  {
+    title: "Operating Systems",
+    slug: "operating-systems",
+    label: "Systems fundamentals",
+    year: "2024–2025",
+    description: "Study notes on operating system fundamentals and resource management.",
+    notes: [
+      {
+        title: "Week 1 — Operating System Fundamentals",
+        slug: "week-01-os-fundamentals",
+        description: "Computer components, processor registers, instruction execution, interrupts and the memory hierarchy.",
+        pdfPath: "/notes/operating-systems/week-01-os-fundamentals.pdf",
+      },
+      {
+        title: "Week 2 — OS Overview & Services",
+        slug: "week-02-os-overview-services",
+        description: "Operating system objectives, user services, resource management and interfaces between applications and hardware.",
+        pdfPath: "/notes/operating-systems/week-02-os-overview-services.pdf",
+      },
+      {
+        title: "Week 3 — Processes & Process Control",
+        slug: "week-03-processes-process-control",
+        description: "Process elements, control blocks, process states, execution traces and operating system control structures.",
+        pdfPath: "/notes/operating-systems/week-03-processes-process-control.pdf",
+      },
+      {
+        title: "Week 4 — Processes & Threads",
+        slug: "week-04-processes-threads",
+        description: "Processes as resource owners, threads as units of execution and single- and multithreaded models.",
+        pdfPath: "/notes/operating-systems/week-04-processes-threads.pdf",
+      },
+      {
+        title: "Week 5 — Concurrency & Mutual Exclusion",
+        slug: "week-05-concurrency-mutual-exclusion",
+        description: "Concurrent execution, mutual exclusion, software approaches and coordination between competing processes.",
+        pdfPath: "/notes/operating-systems/week-05-concurrency-mutual-exclusion.pdf",
+      },
+      {
+        title: "Week 6 — Deadlocks",
+        slug: "week-06-deadlocks",
+        description: "Deadlock conditions, resource allocation and strategies for prevention, avoidance, detection and recovery.",
+        pdfPath: "/notes/operating-systems/week-06-deadlocks.pdf",
+      },
+      {
+        title: "Week 7 — Memory Management",
+        slug: "week-07-memory-management",
+        description: "Memory management requirements, relocation, protection, sharing, partitioning, paging and segmentation.",
+        pdfPath: "/notes/operating-systems/week-07-memory-management.pdf",
+      },
+      {
+        title: "Week 8 — Virtual Memory",
+        slug: "week-08-virtual-memory",
+        description: "Virtual addressing, paging, segmentation, resident sets, locality and the causes of thrashing.",
+        pdfPath: "/notes/operating-systems/week-08-virtual-memory.pdf",
+      },
+      {
+        title: "Week 10 — Uniprocessor Scheduling",
+        slug: "week-10-uniprocessor-scheduling",
+        description: "Long-, medium- and short-term scheduling, dispatching and processor scheduling criteria.",
+        pdfPath: "/notes/operating-systems/week-10-uniprocessor-scheduling.pdf",
+      },
+      {
+        title: "Week 11 — Multiprocessor Scheduling",
+        slug: "week-11-multiprocessor-scheduling",
+        description: "Multiprocessor organization, parallelism granularity, process assignment and master-slave and peer scheduling.",
+        pdfPath: "/notes/operating-systems/week-11-multiprocessor-scheduling.pdf",
+      },
+      {
+        title: "Week 12 — I/O Management",
+        slug: "week-12-io-management",
+        description: "I/O device types, programmed and interrupt-driven I/O, direct memory access and buffering strategies.",
+        pdfPath: "/notes/operating-systems/week-12-io-management.pdf",
+      },
+      {
+        title: "Week 13 — File Systems",
+        slug: "week-13-file-systems",
+        description: "File structures and operations, file management responsibilities, device drivers and basic I/O layers.",
+        pdfPath: "/notes/operating-systems/week-13-file-systems.pdf",
       },
     ],
   },

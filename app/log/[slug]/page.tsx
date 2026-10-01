@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { MarkdownContent } from "@/components/shared/MarkdownContent";
+import { LogTimeline } from "@/components/log/LogTimeline";
 import { formatDateRange } from "@/lib/dates";
 import { formatTags } from "@/lib/content/tags";
 import { getAllLogs, getLogBySlug } from "@/lib/content/logs";
@@ -45,7 +45,9 @@ export default async function LogDetailPage({ params }: LogPageProps) {
           </div>
         </dl>
       ) : null}
-      <MarkdownContent content={log.body} />
+      <div className="log-detail-timeline">
+        <LogTimeline items={log.items} />
+      </div>
       <Link className="inline-link detail-back-link" href="/log">
         Back to log
       </Link>

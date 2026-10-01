@@ -96,7 +96,13 @@ export function WritingArchive({ noteCollections, writing }: WritingArchiveProps
               <ol className="archive-list">
                 {writing.map((entry) => (
                   <li key={entry.slug}>
-                    <Link href={`/writing/${entry.slug}`}>{entry.title}</Link>
+                    {entry.externalUrl ? (
+                      <a href={entry.externalUrl} target="_blank" rel="noopener noreferrer">
+                        {entry.title} <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <Link href={`/writing/${entry.slug}`}>{entry.title}</Link>
+                    )}
                     {entry.publishedAt ? <time dateTime={entry.publishedAt}>{formatDate(entry.publishedAt)}</time> : null}
                     <p>{entry.description}</p>
                   </li>
@@ -123,6 +129,7 @@ export function WritingArchive({ noteCollections, writing }: WritingArchiveProps
                   </Link>
                   <p>
                     {collection.notes.length} notes · {collection.label}
+                    {collection.year ? <> · {collection.year}</> : null}
                   </p>
                 </li>
               ))}

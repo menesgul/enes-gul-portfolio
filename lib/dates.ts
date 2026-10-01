@@ -24,5 +24,10 @@ export function formatDateRange(startDate: string, endDate: string): string {
     return `${new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" }).format(start)}–${end.getUTCDate()}, ${end.getUTCFullYear()}`;
   }
 
+  if (start.getUTCFullYear() === end.getUTCFullYear()) {
+    const monthAndDay = new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" });
+    return `${monthAndDay.format(start)}–${monthAndDay.format(end)}, ${end.getUTCFullYear()}`;
+  }
+
   return `${formatter.format(start)} – ${formatter.format(end)}`;
 }
