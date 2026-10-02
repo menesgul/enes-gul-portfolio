@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MobileNavigation } from "@/components/layout/MobileNavigation";
 import { NavigationShortcuts } from "@/components/layout/NavigationShortcuts";
 import { Sidebar } from "@/components/layout/Sidebar";
+import { site } from "@/data/site";
 
 import "./globals.css";
 
@@ -20,11 +21,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  ...(site.url ? { metadataBase: site.url } : {}),
   title: {
-    default: "Enes Gül",
-    template: "%s · Enes Gül",
+    default: site.title,
+    template: `%s · ${site.name}`,
   },
-  description: "The personal site of Enes Gül.",
+  description: site.description,
+  authors: [{ name: site.name }],
+  creator: site.name,
+  openGraph: {
+    title: site.title,
+    description: site.description,
+    siteName: site.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: site.title,
+    description: site.description,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

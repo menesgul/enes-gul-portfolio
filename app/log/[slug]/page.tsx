@@ -6,6 +6,7 @@ import { LogTimeline } from "@/components/log/LogTimeline";
 import { formatDateRange } from "@/lib/dates";
 import { formatTags } from "@/lib/content/tags";
 import { getAllLogs, getLogBySlug } from "@/lib/content/logs";
+import { pageMetadata } from "@/lib/metadata";
 
 type LogPageProps = {
   params: Promise<{ slug: string }>;
@@ -21,7 +22,11 @@ export async function generateMetadata({ params }: LogPageProps): Promise<Metada
 
   if (!log) return {};
 
-  return { title: log.title, description: log.summary ?? "A weekly technical and professional log entry." };
+  return pageMetadata(
+    log.title,
+    log.summary ?? "A weekly technical and professional log entry by Muhammet Enes Gül.",
+    `/log/${log.slug}`,
+  );
 }
 
 export default async function LogDetailPage({ params }: LogPageProps) {

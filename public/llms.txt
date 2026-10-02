@@ -1,0 +1,60 @@
+# Muhammet Enes Gül
+
+Muhammet Enes Gül is a recent Computer Engineering graduate and software engineer focused on building reliable, high-performance software. His interests include backend systems, distributed systems, developer tooling, open-source software, and applied AI.
+
+This site is a personal portfolio containing projects, technical notes, writing, weekly engineering logs, and career background.
+
+## Main sections
+
+- Home: /
+- Projects: /projects
+- Journey: /journey
+- Writing: /writing
+- Log: /log
+- Stack: /stack
+- About: /about
+
+## Featured projects
+
+- Far Away from Codex: /projects/far-away-from-codex
+  Developer tooling for coding-agent attention, notifications, approvals, and remote interaction flows.
+
+- AI Carbon Tracking: /projects/ai-carbon-tracking
+  TÜBİTAK 2209-A funded project combining mobile development, backend services, Firebase, and AI-assisted analysis.
+
+- URL Shortener: /projects/url-shortener
+  Distributed systems learning project using Flask, PostgreSQL, Redis, NGINX, Docker, replicas, rate limiting, and k6.
+
+## Open source
+
+- Oracle OpenGrok: /projects/oracle-opengrok
+  Contribution improving Bazaar repository tests to exercise real bzr behavior. The pull request is currently open.
+
+## Technical notes
+
+Notes are PDF-backed study archives under /writing/notes.
+
+Collections include:
+- Distributed Systems
+- Cloud Architecture
+- Operating Systems
+- Computer Networks
+
+## Writing
+
+Writing includes external Medium articles and local technical notes.
+
+## Log
+
+/log is a weekly engineering journal covering projects, experiments, events, open-source work, and technical research.
+
+## Documents
+
+- CV: /cv/muhammet-enes-gul-cv.pdf
+- TÜBİTAK proposal: /docs/tubitak-2209a-research-proposal.pdf
+
+## External profiles
+
+- GitHub: https://github.com/menesgul
+- LinkedIn: https://www.linkedin.com/in/menesgul
+- Medium: https://medium.com/@menesgul

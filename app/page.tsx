@@ -8,11 +8,13 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { getLatestLog } from "@/lib/content/logs";
 import { getOpenSourceProjects, getSelectedProjects } from "@/lib/content/projects";
 import { getPublishedWriting } from "@/lib/content/writing";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Home",
-  description: "The personal site of Enes Gül, a software engineer interested in systems, tools, and applied AI.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Home",
+  "Recent Computer Engineering graduate and software engineer focused on reliable, high-performance software, backend systems, distributed systems, developer tooling, and applied AI.",
+  "/",
+);
 
 export default function Home() {
   const latestLog = getLatestLog();
@@ -24,9 +26,12 @@ export default function Home() {
     <>
       <section className="intro" aria-labelledby="intro-heading">
         <h1 id="intro-heading">Hi, I&apos;m Enes.</h1>
-        <p className="intro-copy">
-          I&apos;m a software engineer interested in backend systems, distributed systems, developer tooling, and applied AI.
-        </p>
+        <div className="intro-copy">
+          <p>
+            I&apos;m a recent Computer Engineering graduate and software engineer focused on building reliable, high-performance software and solving complex technical problems. My interests span backend systems, distributed systems, developer tooling, and applied AI, and I&apos;m continuing to grow across software engineering as a whole.
+          </p>
+          <p>Currently open to software engineering opportunities.</p>
+        </div>
       </section>
 
       <div className="home-sections">

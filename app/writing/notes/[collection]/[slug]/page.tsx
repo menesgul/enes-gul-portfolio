@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { ArrowUpRight } from "@/components/shared/ArrowUpRight";
 import { getNote, getNoteCollection, noteCollections } from "@/data/notes";
+import { pageMetadata } from "@/lib/metadata";
 
 type NotePageProps = {
   params: Promise<{ collection: string; slug: string }>;
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: NotePageProps): Promise<Metad
 
   if (!note) return {};
 
-  return { title: note.title, description: note.description };
+  return pageMetadata(note.title, note.description, `/writing/notes/${collectionSlug}/${note.slug}`);
 }
 
 export default async function NotePage({ params }: NotePageProps) {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getNoteCollection, noteCollections } from "@/data/notes";
+import { pageMetadata } from "@/lib/metadata";
 
 type NotesCollectionPageProps = {
   params: Promise<{ collection: string }>;
@@ -18,7 +19,11 @@ export async function generateMetadata({ params }: NotesCollectionPageProps): Pr
 
   if (!collection) return {};
 
-  return { title: `${collection.title} Notes`, description: collection.description };
+  return pageMetadata(
+    `${collection.title} Notes`,
+    collection.description,
+    `/writing/notes/${collection.slug}`,
+  );
 }
 
 export default async function NotesCollectionPage({ params }: NotesCollectionPageProps) {

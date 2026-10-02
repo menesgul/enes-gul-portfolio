@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -28,7 +29,7 @@ const onlineItems: Array<{
   { href: "https://www.linkedin.com/in/menesgul", icon: "linkedin", label: "LinkedIn", newTab: true },
   { href: "https://medium.com/@menesgul", icon: "medium", label: "Medium", newTab: true },
   { href: "mailto:enesgull@hotmail.com", icon: "email", label: "Email", newTab: false },
-  { download: true, href: "/cv/enes-gul-cv.pdf", icon: "cv", label: "CV", newTab: false },
+  { href: "/cv/muhammet-enes-gul-cv.pdf", icon: "cv", label: "CV", newTab: true },
 ];
 
 function OnlineIcon({ name }: { name: OnlineIconName }) {
@@ -84,12 +85,19 @@ export function Sidebar() {
     <aside className="site-sidebar" aria-label="Site navigation">
       <div className="sidebar-content">
         <Link className="sidebar-profile" href="/">
-          <span className="avatar-placeholder" aria-hidden="true">
-            EG
-          </span>
+          <Image
+            className="sidebar-avatar"
+            src="/images/profile/pp.png"
+            alt=""
+            width={192}
+            height={192}
+            sizes="192px"
+            quality={100}
+            priority
+          />
           <span>
-            <span className="sidebar-name">Enes Gül</span>
-            <span className="sidebar-role">Software Engineer</span>
+            <span className="sidebar-name">Muhammet Enes Gül</span>
+            <span className="sidebar-role">New Grad Software Engineer</span>
           </span>
         </Link>
 

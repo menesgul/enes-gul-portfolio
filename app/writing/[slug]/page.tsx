@@ -7,6 +7,7 @@ import { ArrowUpRight } from "@/components/shared/ArrowUpRight";
 import { formatTags } from "@/lib/content/tags";
 import { formatDate } from "@/lib/dates";
 import { getPublishedWriting, getWritingBySlug } from "@/lib/content/writing";
+import { pageMetadata } from "@/lib/metadata";
 
 type WritingPageProps = {
   params: Promise<{ slug: string }>;
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: WritingPageProps): Promise<Me
 
   if (!entry) return {};
 
-  return { title: entry.title, description: entry.description };
+  return pageMetadata(entry.title, entry.description, `/writing/${entry.slug}`);
 }
 
 export default async function WritingDetailPage({ params }: WritingPageProps) {

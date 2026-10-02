@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "About", description: "Background and context for the work of Enes Gül." };
+import { pageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = pageMetadata(
+  "About",
+  "Background, education, interests, and current engineering focus of Muhammet Enes Gül.",
+  "/about",
+);
 
 export default function AboutPage() {
   return (

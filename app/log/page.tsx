@@ -3,8 +3,13 @@ import type { Metadata } from "next";
 import { LogTimeline } from "@/components/log/LogTimeline";
 import { formatDateRange } from "@/lib/dates";
 import { getAllLogs } from "@/lib/content/logs";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = { title: "Log", description: "A lightweight weekly technical and professional journal by Enes Gül." };
+export const metadata: Metadata = pageMetadata(
+  "Log",
+  "A lightweight weekly technical and professional journal by Muhammet Enes Gül.",
+  "/log",
+);
 
 export default function LogPage() {
   const logs = getAllLogs();

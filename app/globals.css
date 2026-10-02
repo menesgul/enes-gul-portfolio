@@ -87,17 +87,13 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.avatar-placeholder {
-  display: inline-grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
+.sidebar-avatar {
+  display: block;
+  width: 3rem;
+  height: 3rem;
   border: 1px solid var(--border);
   border-radius: 50%;
-  color: var(--muted);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.6875rem;
-  letter-spacing: -0.04em;
+  object-fit: cover;
 }
 
 .sidebar-name,
@@ -152,10 +148,10 @@ a:focus-visible {
 
 .sidebar-primary-navigation a.is-active {
   margin-inline: -0.55rem;
-  border-left: 1px solid #b8b8b8;
   padding-inline: 0.55rem;
-  background: #f7f7f7;
-  color: var(--foreground);
+  border-radius: 0.5625rem;
+  background: var(--foreground);
+  color: #fff;
 }
 
 .sidebar-primary-navigation kbd {
@@ -167,6 +163,11 @@ a:focus-visible {
   font-size: 0.625rem;
   line-height: 1.25rem;
   text-align: center;
+}
+
+.sidebar-primary-navigation a.is-active kbd {
+  border-color: rgb(255 255 255 / 42%);
+  color: rgb(255 255 255 / 78%);
 }
 
 .sidebar-divider {
@@ -246,6 +247,14 @@ a:focus-visible {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.7;
+}
+
+.intro-copy p {
+  margin: 0;
+}
+
+.intro-copy p + p {
+  margin-top: 0.9rem;
 }
 
 .home-sections {
@@ -730,6 +739,7 @@ a:focus-visible {
 .notes-panel-close {
   flex: 0 0 auto;
   border: 1px solid var(--border);
+  border-radius: 0.5625rem;
   background: transparent;
   color: var(--foreground);
   font: inherit;
@@ -1074,6 +1084,7 @@ a:focus-visible {
   max-height: min(42rem, calc(100dvh - 2rem));
   margin: auto;
   border: 1px solid var(--border);
+  border-radius: 0.5625rem;
   background: var(--background);
   color: var(--foreground);
 }
@@ -1116,6 +1127,7 @@ a:focus-visible {
 .journey-dialog-close {
   flex: 0 0 auto;
   border: 1px solid var(--border);
+  border-radius: 0.5625rem;
   background: transparent;
   color: var(--foreground);
   font: inherit;

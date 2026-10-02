@@ -61,7 +61,7 @@ export const journeyEntries: JourneyEntry[] = [
     period: "Sep 2021 — Jun 2026",
     title: "Computer Engineering — Istanbul Aydın University",
     organization: "Istanbul Aydın University",
-    description: "Completed a Computer Engineering degree.",
+    description: "Graduated in Computer Engineering with a 100% scholarship and a GPA of 3.38/4.00.",
     type: "education",
   },
   {

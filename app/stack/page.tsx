@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 
 import { stackGroups } from "@/data/stack";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = { title: "Stack", description: "Technologies used meaningfully by Enes Gül." };
+export const metadata: Metadata = pageMetadata(
+  "Stack",
+  "Technologies Muhammet Enes Gül has used meaningfully across software engineering work.",
+  "/stack",
+);
 
 export default function StackPage() {
   return (

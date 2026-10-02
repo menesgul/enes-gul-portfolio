@@ -107,6 +107,9 @@ export function JourneyTimeline({ entries }: JourneyTimelineProps) {
           setSelectedEntry(undefined);
           restoreFocus();
         }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) closeDialog();
+        }}
       >
         {selectedEntry ? (
           <div className="journey-dialog-content">

@@ -6,6 +6,7 @@ import { MarkdownContent } from "@/components/shared/MarkdownContent";
 import { ArrowUpRight } from "@/components/shared/ArrowUpRight";
 import { formatTags } from "@/lib/content/tags";
 import { getAllProjects, getProjectBySlug, type Project } from "@/lib/content/projects";
+import { pageMetadata } from "@/lib/metadata";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) return {};
 
-  return { title: project.title, description: project.description };
+  return pageMetadata(project.title, project.description, `/projects/${project.slug}`);
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

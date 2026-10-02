@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 
 import { ProjectItem } from "@/components/home/ProjectItem";
 import { getExperiments, getOpenSourceProjects, getSelectedProjects, type Project } from "@/lib/content/projects";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = { title: "Projects", description: "Selected work, open-source contributions, and experiments by Enes Gül." };
+export const metadata: Metadata = pageMetadata(
+  "Projects",
+  "Selected software work, open-source contributions, and technical experiments by Muhammet Enes Gül.",
+  "/projects",
+);
 
 type ProjectSectionProps = {
   id: string;
