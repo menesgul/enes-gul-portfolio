@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Container } from "@/components/layout/Container";
 import { Footer } from "@/components/layout/Footer";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Footer />
           </div>
         </div>
+        <Analytics />
       </body>
     </html>
   );
